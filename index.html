@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    #totop {
+      position: fixed;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>infinite page lol</h1>
+  <p>(made by <a href="https://github.com/awkey1" target="_blank">Awkey</a>)</p>
+  <button id="totop" onclick="window.scrollTo(0, 0)" hidden>go to top</button>
+  
+  
+
+  <script defer>
+    while (true) {
+      document.body.insertAdjacentHTML('beforeend', 'you cant reach the end <br>');
+      if (parseInt(getComputedStyle(document.body).height) > window.innerHeight) break;
+    }
+
+    document.onscroll = () => {
+      document.body.insertAdjacentHTML('beforeend', 'you cant reach the end <br>');
+      if (document.documentElement.scrollTop > window.innerHeight) document.querySelector('#totop').hidden = false;
+      else document.querySelector('#totop').hidden = true;
+    };
+  </script>
+
+</body>
+</html>
